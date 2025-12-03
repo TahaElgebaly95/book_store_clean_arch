@@ -180,15 +180,13 @@ void setupServiceLocator() {
   sl.registerLazySingleton(() => GetSlidersUseCase(sl<HomeRepository>()));
 
   // Cubit - Single Unified Cubit
-  sl.registerFactory(
-        () => HomeCubit(
-      getCategoriesUseCase: sl<GetCategoriesUseCase>(),
-      getCategoryProductsUseCase: sl<GetCategoryProductsUseCase>(),
-      getBestSellersUseCase: sl<GetBestSellersUseCase>(),
-      getNewArrivalsUseCase: sl<GetNewArrivalsUseCase>(),
-      getSlidersUseCase: sl<GetSlidersUseCase>(),
-    ),
-  );
+  sl.registerFactory(() => HomeCubit(
+    getCategoriesUseCase: sl(),
+    getCategoryProductsUseCase: sl(),
+    getBestSellersUseCase: sl(),
+    getNewArrivalsUseCase: sl(),
+    getSlidersUseCase: sl(),
+  ));
 
   // -------------------- Books Feature --------------------
   // Cubit

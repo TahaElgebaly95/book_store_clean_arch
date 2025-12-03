@@ -104,25 +104,88 @@ class AppRouter {
       ),
 
       // ==================== CATEGORY PRODUCTS - FIXED ====================
+     /* GoRoute(
+        path: '/category/:id',
+        builder: (context, state) {
+          final id = int.tryParse(state.pathParameters['id']!) ?? 0;
+
+          // ✅ SAFE: Handle null and casting properly
+          String? categoryName;
+          try {
+            if (state.extra != null && state.extra is Map<String, dynamic>) {
+              final extra = state.extra as Map<String, dynamic>;
+              // ✅ Safe casting - use toString() or null check
+              categoryName = extra['categoryName']?.toString();
+            }
+          } catch (e) {
+            // ✅ Fallback if casting fails
+            categoryName = 'Products';
+          }
+
+          // ✅ FIX: Add MultiBlocProvider with all required cubits
+          return MultiBlocProvider(
+            providers: [
+              // ✅ HomeCubit - for loading category products
+              BlocProvider(
+                create: (context) => sl<HomeCubit>()
+                  ..loadCategoryProducts(id),
+              ),
+
+              // ✅ Favorite Feature
+              BlocProvider(create: (context) => sl<AddOrRemoveFavCubit>()),
+              BlocProvider(
+                create: (context) => sl<GetFavouriteCubit>()..getFavourite(),
+              ),
+
+              // ✅ Cart Feature
+              BlocProvider(create: (context) => sl<AddOrRemoveToCartCubit>()),
+            ],
+            child: CategoryProductsScreen(
+              categoryId: id,
+              categoryName: categoryName,
+            ),
+          );
+        },
+      ),
+*/
       GoRoute(
         path: '/category/:id',
         builder: (context, state) {
           final id = int.tryParse(state.pathParameters['id']!) ?? 0;
 
           String? categoryName;
-          if (state.extra != null && state.extra is Map<String, dynamic>) {
-            final extra = state.extra as Map<String, dynamic>;
-            categoryName = extra['categoryName'] as String?;
+          try {
+            if (state.extra != null && state.extra is Map<String, dynamic>) {
+              final extra = state.extra as Map<String, dynamic>;
+              categoryName = extra['categoryName']?.toString();
+            }
+          } catch (e) {
+            categoryName = 'Products';
           }
 
-          return CategoryProductsScreen(
-            categoryId: id,
-            categoryName: categoryName,
+          // ✅ FIX: CREATE HomeCubit instance for this route
+          return MultiBlocProvider(
+            providers: [
+              // ✅ HomeCubit - MUST be provided here!
+              BlocProvider(
+                create: (context) => sl<HomeCubit>()
+                  ..loadCategoryProducts(id),
+              ),
+
+              // ✅ Favorite & Cart cubits
+              BlocProvider(create: (context) => sl<AddOrRemoveFavCubit>()),
+              BlocProvider(
+                create: (context) => sl<GetFavouriteCubit>()..getFavourite(),
+              ),
+              BlocProvider(create: (context) => sl<AddOrRemoveToCartCubit>()),
+            ],
+            child: CategoryProductsScreen(
+              categoryId: id,
+              categoryName: categoryName,
+            ),
           );
         },
       ),
-
-// ✅ Product Details Route (Already correct)
       GoRoute(
         path: '/product/:id',
         builder: (context, state) {

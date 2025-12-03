@@ -105,18 +105,3 @@
 //     );
 //   }
 // }
-//
-// // Usage in CategoryProductsScreen:
-// // if (state is CategoryProductsLoading) {
-// //   return GridView.builder(
-// //     padding: EdgeInsets.all(16.sp),
-// //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-// //       crossAxisCount: 2,
-// //       crossAxisSpacing: 12.w,
-// //       mainAxisSpacing: 12.h,
-// //       childAspectRatio: 0.65,
-// //     ),
-// //     itemCount: 6, // Show 6 shimmer cards
-// //     itemBuilder: (context, index) => const ProductCardShimmer(),
-// //   );
-// // }

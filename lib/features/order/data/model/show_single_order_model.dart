@@ -32,15 +32,15 @@ class SingleOrderData {
   final String address;
   final String governorate;
   final String phone;
-  final dynamic? tax;
+  final dynamic tax;
   @JsonKey(name: 'sub_total')
   final String subTotal;
   @JsonKey(name: 'order_date')
   final String orderDate;
   final String status;
   @JsonKey(name: 'reject_details')
-  final dynamic? rejectDetails;
-  final dynamic? notes;
+  final dynamic rejectDetails;
+  final dynamic notes;
   final int discount;
   @JsonKey(name: 'order_products')
   final List<OrderProductModel> orderProducts;

@@ -1,6 +1,5 @@
 import 'package:book_store_mvvm/core/data/network/helper/api_service.dart';
 import 'package:book_store_mvvm/core/data/network/helper/endpoints.dart';
-import 'package:dio/dio.dart';
 import '../model/contact_us_model.dart';
 
 abstract class ContactUsRemoteDataSource {

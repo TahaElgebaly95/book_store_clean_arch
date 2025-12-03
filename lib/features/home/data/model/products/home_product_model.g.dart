@@ -8,16 +8,16 @@ part of 'home_product_model.dart';
 
 HomeProductModel _$HomeProductModelFromJson(Map<String, dynamic> json) =>
     HomeProductModel(
-      id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
-      description: json['description'] as String,
-      price: json['price'] as String,
-      discount: (json['discount'] as num).toInt(),
-      priceAfterDiscount: (json['price_after_discount'] as num).toDouble(),
-      stock: (json['stock'] as num).toInt(),
-      bestSeller: (json['best_seller'] as num).toInt(),
-      image: json['image'] as String,
-      category: json['category'] as String,
+      id: (json['id'] as num?)?.toInt(),
+      name: json['name'] as String?,
+      description: json['description'] as String?,
+      price: json['price'],
+      discount: (json['discount'] as num?)?.toInt(),
+      priceAfterDiscount: json['price_after_discount'],
+      stock: (json['stock'] as num?)?.toInt(),
+      bestSeller: (json['best_seller'] as num?)?.toInt(),
+      image: json['image'] as String?,
+      category: json['category'] as String?,
     );
 
 Map<String, dynamic> _$HomeProductModelToJson(HomeProductModel instance) =>

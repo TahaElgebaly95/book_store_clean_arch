@@ -4,7 +4,7 @@ class Routs {
   static const String registerRoute = '/register';
   static const String bottomNavBarRoute = '/bottomNavBar';
   static const String homeRoute = '/home';
-  static const String showCategoriesRoute = '/showCategories';
+  static const String showCategoriesRoute = '/categories';
   static const String bestSellerRoute = '/bestSeller';
   static const String showBookDetailsRoute = '/showBookDetails';
   static const String profileRoute = '/profile';

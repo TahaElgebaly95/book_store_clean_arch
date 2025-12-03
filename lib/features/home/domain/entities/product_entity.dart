@@ -1,8 +1,4 @@
-// ========== product_entity.dart ==========
-
-import 'package:equatable/equatable.dart';
-
-class ProductEntity extends Equatable {
+class ProductEntity {
   final int id;
   final String name;
   final String description;
@@ -14,7 +10,7 @@ class ProductEntity extends Equatable {
   final String imageUrl;
   final String category;
 
-  const ProductEntity({
+  ProductEntity({
     required this.id,
     required this.name,
     required this.description,
@@ -27,20 +23,7 @@ class ProductEntity extends Equatable {
     required this.category,
   });
 
+  // ✅ Computed properties
   bool get hasDiscount => discount > 0;
   bool get isInStock => stock > 0;
-
-  @override
-  List<Object?> get props => [
-    id,
-    name,
-    description,
-    price,
-    discount,
-    priceAfterDiscount,
-    stock,
-    isBestSeller,
-    imageUrl,
-    category,
-  ];
 }

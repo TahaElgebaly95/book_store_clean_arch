@@ -1,10 +1,8 @@
 import 'package:book_store_mvvm/features/order/presentation/view/widgets/order_history_widgets/order_history_view_body.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/components/widgets/text_custom.dart';
 import '../../../../core/utils/colors.dart';
-import '../view_model/order_history_cubit/order_history_cubit.dart';
 
 class OrderHistoryView extends StatelessWidget {
   const OrderHistoryView({super.key});

@@ -17,5 +17,5 @@ class GetFaqsByCategoryUseCase {
 }
 
 class ValidationFailure extends Failure {
-  ValidationFailure(String message) : super(message);
+  ValidationFailure(super.message);
 }

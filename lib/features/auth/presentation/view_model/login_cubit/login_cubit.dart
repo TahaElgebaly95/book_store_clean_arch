@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:equatable/equatable.dart';
 import '../../../../../core/data/local/shared_helper.dart';
 import '../../../../../core/data/local/shared_keys.dart';
 import '../../../domain/use_cases/login_use_case.dart';

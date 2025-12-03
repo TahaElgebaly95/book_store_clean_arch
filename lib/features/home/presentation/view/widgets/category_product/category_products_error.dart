@@ -1,5 +1,3 @@
-// lib/features/home/presentation/view/widgets/category_products/category_products_error.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

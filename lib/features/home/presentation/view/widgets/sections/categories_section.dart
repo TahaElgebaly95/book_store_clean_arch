@@ -1,9 +1,7 @@
-// lib/features/home/presentation/view/widgets/sections/categories_section.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-
 import '../../../../domain/entities/category_entity.dart';
 import '../common/section_header.dart';
 import '../items/category_item.dart';
@@ -34,10 +32,11 @@ class CategoriesSection extends StatelessWidget {
               return CategoryItem(
                 category: category,
                 onTap: () {
-                  // ✅ FIXED: Navigate with category name
                   context.push(
                     '/category/${category.id}',
-                    extra: {'categoryName': category.name},
+                    extra: {
+                      'categoryName': category.name ?? 'Products',
+                    },
                   );
                 },
               );

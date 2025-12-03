@@ -1,4 +1,3 @@
-// lib/features/home/presentation/view/widgets/sections/new_arrivals_section.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

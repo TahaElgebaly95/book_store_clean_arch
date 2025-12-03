@@ -16,7 +16,7 @@ class GovernorateDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<int>(
-      value: value,
+      initialValue: value,
       decoration: InputDecoration(
         labelText: 'Governorate *',
         prefixIcon: const Icon(Icons.location_city_outlined),

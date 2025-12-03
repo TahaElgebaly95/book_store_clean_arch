@@ -1,9 +1,8 @@
-// lib/features/home/presentation/view/widgets/category_products/category_products_grid.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:go_router/go_router.dart';
 import '../../../../../cart/presentation/view_model/add_or_remove_to_cart_cubit/add_or_remove_to_cart_cubit.dart';
 import '../../../../../favourite/presentation/view_model/add_and_remove_fav_cubit/add_and_remove_fav_cubit.dart';
 import '../../../../../favourite/presentation/view_model/get_fav_cubit/get_favourite_cubit.dart';
@@ -55,7 +54,7 @@ class CategoryProductsGrid extends StatelessWidget {
         crossAxisCount: 2,
         crossAxisSpacing: 12.w,
         mainAxisSpacing: 12.h,
-        childAspectRatio: 0.65,
+        childAspectRatio: 0.58, // ✅ FINAL FIX: زودته من 0.58 → 0.55 (أطول)
       ),
       itemCount: products.length,
       itemBuilder: (context, index) {
@@ -63,9 +62,7 @@ class CategoryProductsGrid extends StatelessWidget {
         return CategoryProductItem(
           product: product,
           onTap: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Product: ${product.name}')),
-            );
+            context.push('/product/${product.id}', extra: product);
           },
           onFavoriteTap: () {
             context.read<AddOrRemoveFavCubit>().addToFavourite(product.id);
@@ -75,6 +72,13 @@ class CategoryProductsGrid extends StatelessWidget {
           onAddToCart: () {
             context.read<AddOrRemoveToCartCubit>().addToCart(
               productId: product.id,
+            );
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('${product.name} added to cart'),
+                backgroundColor: Colors.green,
+                duration: const Duration(seconds: 2),
+              ),
             );
           },
         );

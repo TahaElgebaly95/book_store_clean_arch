@@ -1,9 +1,6 @@
-// lib/features/home/presentation/view/widgets/sections/sliders_section.dart
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../../../domain/entities/silder_entity.dart';
 
 class SlidersSection extends StatelessWidget {
