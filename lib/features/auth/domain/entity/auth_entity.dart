@@ -21,7 +21,7 @@ class UserEntity extends Equatable {
   final String? city;
   final String? phone;
   final bool emailVerified;
-  final String image;
+  final String? image;
 
   const UserEntity({
     required this.id,

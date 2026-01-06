@@ -14,7 +14,6 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // ✅ Navigate to product details
         context.push('/product/${product.id}', extra: product);
       },
       borderRadius: BorderRadius.circular(12.r),

@@ -10,7 +10,6 @@ class AddOrRemoveToCartCubit extends Cubit<AddOrRemoveToCartState> {
   final AddToCartUseCase addToCartUseCase;
   final RemoveFromCartUseCase removeFromCartUseCase;
 
-  // ✅ Track loading state per product
   final Set<int> _loadingProducts = {};
 
   AddOrRemoveToCartCubit(
@@ -20,17 +19,14 @@ class AddOrRemoveToCartCubit extends Cubit<AddOrRemoveToCartState> {
 
   static AddOrRemoveToCartCubit get(context) => BlocProvider.of(context);
 
-  // ✅ Method للتحقق من loading لمنتج معين
   bool isProductLoading(int productId) => _loadingProducts.contains(productId);
 
   Future<void> addToCart({required int productId}) async {
-    // ✅ إضافة المنتج للـ loading set
     _loadingProducts.add(productId);
     emit(AddToCartLoadingState(productId));
 
     final result = await addToCartUseCase.call(productId: productId);
 
-    // ✅ إزالة المنتج من الـ loading set
     _loadingProducts.remove(productId);
 
     result.fold(

@@ -1,5 +1,3 @@
-// lib/features/home/presentation/view/widgets/category_product/widgets/product_image_section.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../domain/entities/product_entity.dart';

@@ -1,5 +1,3 @@
-// lib/features/home/presentation/view/widgets/drawer/home_drawer.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -41,7 +39,8 @@ class HomeDrawer extends StatelessWidget {
             titleColor: Colors.red,
             iconColor: Colors.red,
             onTap: () {
-              // TODO: Implement logout
+              SharedHelper.clear();
+              context.pushReplacement(Routs.loginRoute);
             },
           ),
           const Divider(height: 1),
@@ -94,10 +93,7 @@ class _DrawerHeader extends StatelessWidget {
             SizedBox(height: 4.h),
             Text(
               email,
-              style: TextStyle(
-                color: Colors.white70,
-                fontSize: 13.sp,
-              ),
+              style: TextStyle(color: Colors.white70, fontSize: 13.sp),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
@@ -127,11 +123,7 @@ class _DrawerMenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(
-        icon,
-        color: iconColor ?? Colors.grey[700],
-        size: 24.sp,
-      ),
+      leading: Icon(icon, color: iconColor ?? Colors.grey[700], size: 24.sp),
       title: Text(
         title,
         style: TextStyle(

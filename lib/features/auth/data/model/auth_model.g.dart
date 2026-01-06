@@ -35,7 +35,7 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) => UserModel(
   city: json['city'] as String?,
   phone: json['phone'] as String?,
   emailVerified: json['email_verified'] as bool,
-  image: json['image'] as String,
+  image: json['image'] as String?,
 );
 
 Map<String, dynamic> _$UserModelToJson(UserModel instance) => <String, dynamic>{

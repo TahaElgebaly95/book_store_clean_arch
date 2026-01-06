@@ -16,19 +16,19 @@ class FetchCartCubit extends Cubit<FetchCartState> {
     emit(FetchCartLoadingState());
     final result = await FetchCartUseCase(cartRepo).call();
     result.fold(
-          (failure) => emit(FetchCartErrorState(failure.errMessage)),
-          (cartModel) => emit(FetchCartSuccessState(cartModel)),
+      (failure) => emit(FetchCartErrorState(failure.errMessage)),
+      (cartModel) => emit(FetchCartSuccessState(cartModel)),
     );
   }
 
-  // ✅ Method للتحقق من وجود المنتج في السلة
   bool isProductInCart(int productId) {
     final currentState = state;
 
     if (currentState is FetchCartSuccessState) {
       return currentState.cartModel.cartItems?.any(
             (cartItem) => cartItem.itemProductId == productId,
-      ) ?? false;
+          ) ??
+          false;
     }
 
     return false;
@@ -40,7 +40,7 @@ class FetchCartCubit extends Cubit<FetchCartState> {
 
     if (currentState is FetchCartSuccessState) {
       final cartItem = currentState.cartModel.cartItems?.firstWhere(
-            (item) => item.itemProductId == productId,
+        (item) => item.itemProductId == productId,
         orElse: () => CartItems(),
       );
       return cartItem?.itemId;

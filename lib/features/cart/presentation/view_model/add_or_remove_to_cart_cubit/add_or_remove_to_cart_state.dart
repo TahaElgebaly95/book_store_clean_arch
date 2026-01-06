@@ -9,7 +9,6 @@ sealed class AddOrRemoveToCartState extends Equatable {
 
 final class AddOrRemoveToCartInitialState extends AddOrRemoveToCartState {}
 
-// ✅ إضافة productId للـ Loading State
 final class AddToCartLoadingState extends AddOrRemoveToCartState {
   final int productId;
   const AddToCartLoadingState(this.productId);

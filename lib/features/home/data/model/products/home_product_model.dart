@@ -1,4 +1,3 @@
-// ========== home_product_model.dart (FINAL FIX) ==========
 import 'package:json_annotation/json_annotation.dart';
 import '../../../domain/entities/product_entity.dart';
 
@@ -15,7 +14,6 @@ class HomeProductModel {
   @JsonKey(name: 'description')
   final String? description;
 
-  // ✅ CRITICAL FIX: price can be String OR number from API
   @JsonKey(name: 'price')
   final dynamic price;  // Changed from String? to dynamic
 

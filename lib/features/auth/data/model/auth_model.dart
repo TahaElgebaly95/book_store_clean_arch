@@ -51,7 +51,7 @@ class UserModel {
   @JsonKey(name: 'email_verified')
   final bool emailVerified;
   @JsonKey(name: 'image')
-  final String image;
+  final String? image;
 
   UserModel({
     required this.id,

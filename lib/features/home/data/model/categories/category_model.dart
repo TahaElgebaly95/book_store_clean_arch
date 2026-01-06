@@ -24,7 +24,6 @@ class CategoryModel {
   factory CategoryModel.fromJson(Map<String, dynamic> json) =>
       _$CategoryModelFromJson(json);
 
-  // ✅ Safe conversion with null checks
   CategoryEntity toEntity() => CategoryEntity(
     id: id ?? 0,
     name: name ?? 'Unknown Category',

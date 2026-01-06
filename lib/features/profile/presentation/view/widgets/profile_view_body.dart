@@ -1,6 +1,8 @@
+import 'package:book_store_mvvm/core/utils/routing/routs.dart';
 import 'package:book_store_mvvm/features/profile/presentation/view/widgets/change_password_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../view_model/get_profile_cubit/profile_cubit.dart';
 import '../../view_model/get_profile_cubit/profile_state.dart';
@@ -78,7 +80,9 @@ class _ProfileContentState extends State<_ProfileContent> {
             name: widget.user.name,
             email: widget.user.email,
             selectedImage: _selectedImage,
-            onLogout: () {},
+            onLogout: () {
+              context.pushReplacement(Routs.loginRoute);
+            },
           ),
           PersonalInfoSection(
             onImageSelected: (image) => setState(() => _selectedImage = image),

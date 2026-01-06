@@ -60,7 +60,9 @@ class ProfileHeader extends StatelessWidget {
           top: 25.h,
           left: 16.w,
           child: GestureDetector(
-            onTap: () => context.pop(),
+            onTap: () {
+              context.push(Routs.bottomNavBarRoute);
+            },
             child: Icon(Icons.arrow_back, color: AppColors.kWhite, size: 28.sp),
           ),
         ),
@@ -68,7 +70,7 @@ class ProfileHeader extends StatelessWidget {
           top: 25.h,
           right: 16.w,
           child: GestureDetector(
-            onTap: onLogout ?? () => context.go(Routs.loginRoute),
+            onTap: onLogout ?? () => context.push(Routs.loginRoute),
             child: Icon(Icons.logout, color: Colors.white, size: 28.sp),
           ),
         ),
@@ -89,7 +91,7 @@ class ProfileHeader extends StatelessWidget {
               TextCustom(
                 text: email,
                 fontSize: 13.sp,
-                color:  AppColors.primaryColor,
+                color: AppColors.primaryColor,
               ),
             ],
           ),
