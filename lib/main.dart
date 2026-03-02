@@ -14,7 +14,6 @@ void main() async {
   await SharedHelper.init();
   await ApiService.init();
   setupServiceLocator();
-  //await SharedHelper.clear();
   runApp(const BookApp());
 }
 

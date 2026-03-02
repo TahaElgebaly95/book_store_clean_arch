@@ -1,5 +1,6 @@
 import 'package:book_store_mvvm/core/utils/routing/routs.dart';
 import 'package:book_store_mvvm/core/utils/service_locator.dart';
+import 'package:book_store_mvvm/core/components/common_bloc_providers.dart';
 import 'package:book_store_mvvm/features/auth/presentation/view_model/login_cubit/login_cubit.dart';
 import 'package:book_store_mvvm/features/auth/presentation/view_model/register_cubit/register_cubit.dart';
 import 'package:book_store_mvvm/features/books/presentation/view_model/all_products_cubit/all_books_products_cubit.dart';
